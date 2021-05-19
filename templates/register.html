@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<div class="column is-4 is-offset-4">
+  <h3 class="title">Sign Up</h3>
+  <div class="box">
+      <form method="POST">
+          <div class="field">
+              <div class="control">
+                {{ render_field(form.username) }}
+              </div>
+          </div>
+
+          <div class="field">
+              <div class="control">
+                  {{ render_field(form.email, type="email") }}
+              </div>
+          </div>
+
+          <div class="field">
+              <div class="control">
+                {{ render_field(form.password) }}
+              </div>
+          </div>
+
+          <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+      </form>
+  </div>
+</div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='scripts/register.js') }}"></script>
+{% endblock %}
+{% endblock %}

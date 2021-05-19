@@ -1,0 +1,10 @@
+{% macro render_field(field, attributes) %}
+{{ field(class="input is-large", placeholder=field.label.text, **kwargs) }}
+{% if field.errors %}
+<ul class=errors>
+  {% for error in field.errors %}
+  <li>{{ error }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}
